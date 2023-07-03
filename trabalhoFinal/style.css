@@ -1,0 +1,57 @@
+body{
+    background-color: gray;
+}
+
+header img {
+    width: 7vw;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    font-size: 120%;
+    margin-right: 3%;
+    background-color: white;
+    border: 3px solid black;
+    border-radius: 100%;
+    padding: 1%;
+}
+
+.top {
+    display: flex;
+    align-items: center; 
+}
+
+.pesquisa {
+    width: 60%;
+}
+
+.buscar,
+.pesquisa {
+    height: 5vh;
+}
+
+.menu li {
+    border: 2px solid black;
+    list-style: none;
+
+    width: 110%;
+    padding: 10px;
+    font-size: 25px;
+    color: black;
+    background-color: rgb(255, 255, 255);
+    font-family: fantasy;
+}
+
+.menu li:hover{
+    background-color: lightgray;
+}
+
+a {
+    text-decoration: none;
+}
+
+.container {
+    display: flex;
+    justify-content: left;
+}

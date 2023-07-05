@@ -25,8 +25,10 @@ if ($conexao) {
                 <img src="images/OIP.png">
                 <h1>Pietre</h1>
             </header>
-            <input type="text" class="pesquisa" placeholder="Pesquise artigos...">
-            <button type="submit" class="buscar">Buscar</button>
+            <form action="busca.php" method="POST">
+                <input type="text" class="pesquisa" name="id_artigo" placeholder="Pesquise artigos...">
+                <button type="submit" class="botaoBuscar">Buscar</button>
+            </form>
         </div>
 
         <div class="container">
@@ -46,39 +48,60 @@ if ($conexao) {
             </div>
         </div>
 
-        <?php
-        while ($artigo = mysqli_fetch_assoc($resultado)) {
-            ?>
-            <tr>
-                <td>
-                    <?php echo $artigo['id_artigo']; ?>
-                </td>
-                <td>
-                    <?php echo $artigo['titulo']; ?>
-                </td>
-                <td>
-                    <?php echo $artigo['classificacao']; ?>
-                </td>
-                <td>
-                    <?php echo $artigo['link_drive']; ?>
-                </td>
-                <td>
-                    <?php echo $artigo['data_publi']; ?>
-                </td>
-                <td>
-                    <?php echo $artigo['id_pesquisador']; ?>
-                </td>
-                <td>
-                    <a href="editarArtigo.php?id=<?php echo $artigo['id']; ?>" class="botaoEditar">Editar</a>
-                </td>
-                <td>
-                    <a href="excluirArtigo.php?id=<?php echo $artigo['id']; ?>" class="botaoExcluir"
-                        onclick="return confirm('Você tem certeza?')">Excluir</a>
-                </td>
-            </tr>
-            <?php
-        }
-        ?>
+        <div class="tabela">
+            <h1>Lista de artigos cadastrados</h1>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Título</th>
+                        <th>Classificação</th>
+                        <th>Link de acesso</th>
+                        <th>Data da publicação</th>
+                        <th>ID do pesquisador</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+
+                    <?php
+                    while ($artigo = mysqli_fetch_assoc($resultado)) {
+                        ?>
+                        <div class="consulta">
+                            <tr>
+                                <td>
+                                    <?php echo $artigo['id_artigo']; ?>
+                                </td>
+                                <td>
+                                    <?php echo $artigo['titulo']; ?>
+                                </td>
+                                <td>
+                                    <?php echo $artigo['classificacao']; ?>
+                                </td>
+                                <td>
+                                    <?php echo $artigo['link_drive']; ?>
+                                </td>
+                                <td>
+                                    <?php echo $artigo['data_publi']; ?>
+                                </td>
+                                <td>
+                                    <?php echo $artigo['id_pesquisador']; ?>
+                                </td>
+                                <td>
+                                    <a href="editarArtigo.php?id=<?php echo $artigo['id']; ?>" class="botaoEditar">Editar</a>
+                                </td>
+                                <td>
+                                    <a href="excluirArtigo.php?id=<?php echo $artigo['id']; ?>" class="botaoExcluir"
+                                        onclick="return confirm('Você tem certeza?')">Excluir</a>
+                                </td>
+                            </tr>
+                        </div>
+                        <?php
+                    }
+                    ?>
+                </tbody>
+            </table>
+        </div>
     </body>
 
     </html>

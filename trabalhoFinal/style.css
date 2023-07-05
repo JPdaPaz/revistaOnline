@@ -1,4 +1,4 @@
-body{
+body {
     background-color: gray;
 }
 
@@ -19,7 +19,7 @@ header {
 
 .top {
     display: flex;
-    align-items: center; 
+    align-items: center;
 }
 
 .pesquisa {
@@ -43,7 +43,7 @@ header {
     font-family: fantasy;
 }
 
-.menu li:hover{
+.menu li:hover {
     background-color: lightgray;
 }
 
@@ -54,4 +54,8 @@ a {
 .container {
     display: flex;
     justify-content: left;
+}
+
+.consulta td {
+    border: 10px solid black;
 }

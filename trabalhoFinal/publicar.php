@@ -48,6 +48,23 @@
 
     </div>
 
+    <div class="container">
+        <div class="menu">
+            <ul>
+                <a href="index.php">
+                    <li>
+                        Pesquisa
+                    </li>
+                </a>
+                <a href="Conta.php">
+                    <li>
+                        Conta
+                    </li>
+                </a>
+            </ul>
+        </div>
+    </div>
+
 </body>
 
 </html>

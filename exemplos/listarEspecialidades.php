@@ -61,8 +61,8 @@ if ($conexao) {
                                     class="btn btn-primary">Editar</a>
                             </td>
                             <td>
-                                <a href="excluirEspecialidade.php?id=<?php echo $especialidade['id']; ?>"
-                                    class="btn btn-danger" onclick="return confirm('Você tem certeza?')">Excluir</a>
+                                <a href="excluirEspecialidade.php?id=<?php echo $especialidade['id']; ?>" class="btn btn-danger"
+                                    onclick="return confirm('Você tem certeza?')">Excluir</a>
                             </td>
                         </tr>
                         <?php

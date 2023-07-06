@@ -26,7 +26,7 @@ if ($conexao) {
                 <h1>Pietre</h1>
             </header>
             <form action="busca.php" method="POST">
-                <input type="text" class="pesquisa" name="id_artigo" placeholder="Pesquise artigos...">
+                <input type="text" class="pesquisa" name="id_artigo" placeholder="Pesquise artigos por ID...">
                 <button type="submit" class="botaoBuscar">Buscar</button>
             </form>
         </div>
@@ -39,7 +39,7 @@ if ($conexao) {
                             Publicar
                         </li>
                     </a>
-                    <a href="Conta.php">
+                    <a href="criaConta.php">
                         <li>
                             Conta
                         </li>
@@ -88,10 +88,10 @@ if ($conexao) {
                                     <?php echo $artigo['id_pesquisador']; ?>
                                 </td>
                                 <td>
-                                    <a href="editarArtigo.php?id=<?php echo $artigo['id']; ?>" class="botaoEditar">Editar</a>
+                                    <a href="editarArtigo.php?id=<?php echo $artigo['id_artigo']; ?>" class="botaoEditar">Editar</a>
                                 </td>
                                 <td>
-                                    <a href="excluirArtigo.php?id=<?php echo $artigo['id']; ?>" class="botaoExcluir"
+                                    <a href="excluirArtigo.php?id=<?php echo $artigo['id_artigo']; ?>" class="botaoExcluir"
                                         onclick="return confirm('Você tem certeza?')">Excluir</a>
                                 </td>
                             </tr>

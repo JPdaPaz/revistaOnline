@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         if ($resultado) {
             echo "Especialidade cadastrada com sucesso!";
             // reireciona para a página de cadastro após 3 segundos
-            header("refresh:3;url=publicar.php");
+            header("refresh:2;url=publicar.php");
 
         } else {
             echo "ocorreu um erro ao cadastrar a especialidade: " . mysqli_error($conexao);

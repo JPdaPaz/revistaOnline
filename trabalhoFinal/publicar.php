@@ -19,27 +19,27 @@
 
             <div class="formGroup">
                 <label for="nome">Título:</label>
-                <input type="text" class="formInput" id="nome" name="titulo" required>
+                <input type="text" class="formInput" name="titulo" required>
             </div>
 
             <div class="formGroup">
                 <label for="nome">Classificação indicativa:</label>
-                <input type="text" class="formInput" id="nome" name="classificacao" required>
+                <input type="text" class="formInput" name="classificacao" required>
             </div>
 
             <div class="formGroup">
                 <label for="nome">Link do drive:</label>
-                <input type="text" class="formInput" id="nome" name="link_drive" required>
+                <input type="text" class="formInput" name="link_drive" required>
             </div>
 
             <div class="formGroup">
                 <label for="nome">Data de publicação (yyyyMMdd):</label>
-                <input type="text" class="formInput" id="nome" name="data_publi" required>
+                <input type="text" class="formInput" name="data_publi" required>
             </div>
 
             <div class="formGroup">
                 <label for="nome">ID do pesquisador:</label>
-                <input type="text" class="formInput" id="nome" name="id_pesquisador" required>
+                <input type="text" class="formInput" name="id_pesquisador" required>
             </div>
 
             <button type="submit" class="submit">Cadastrar</button>

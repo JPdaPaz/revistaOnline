@@ -66,7 +66,7 @@ if ($id) {
             <?php
 
         } else {
-            echo "Especialidade médica não encontrada.";
+            echo "Artigo não encontrado.";
         }
         mysqli_close($conexao);
     } else {

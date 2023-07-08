@@ -38,8 +38,8 @@
             </div>
 
             <div class="formGroup">
-                <label for="nome">ID do pesquisador:</label>
-                <input type="text" class="formInput" name="id_pesquisador" required>
+                <label for="nome">ID do publicador:</label>
+                <input type="text" class="formInput" name="id_publicador" required>
             </div>
 
             <button type="submit" class="submit">Cadastrar</button>
@@ -56,9 +56,9 @@
                         Pesquisa
                     </li>
                 </a>
-                <a href="Conta.php">
+                <a href="criarConta.php">
                     <li>
-                        Conta
+                        Criar conta
                     </li>
                 </a>
             </ul>

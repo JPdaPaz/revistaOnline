@@ -1,47 +1,71 @@
 <?php
 
 
-if (isset($_GET['id'])) {
+if (isset($_GET['ID_artigo'])) {
+
+    $conexao = mysqli_connect("localhost", "root", "", "revistaPietre");
 
 
-$conexao = mysqli_connect("localhost", "root", "", "pietreRevista");
+    if ($conexao) {
+
+        $id = $_GET['ID_artigo'];
+        $consulta = "SELECT * FROM artigo WHERE ID_artigo='$id'";
+
+        $resultado = mysqli_query($conexao, $consulta);
 
 
-if ($conexao) {
+        if (mysqli_num_rows($resultado) > 0) {
 
-    $id = $_GET['id'];
-    $consulta = "SELECT * FROM artigo WHERE id_artigo='$id'";
+            $artigo = mysqli_fetch_assoc($resultado);
 
-    $resultado = mysqli_query($conexao, $consulta);
+            if ($_SERVER["REQUEST_METHOD"] === "POST") {
+
+                $senha = $_POST["senha"];
+                $ID_publi = $_POST["ID_publi"];
+                $consulta2 = "SELECT * FROM conta, conta_publi WHERE conta_publi.ID_publi = '$ID_publi' AND conta.senha = '$senha' AND conta_publi.id_conta=conta.ID_conta";
+                $resultado2 = mysqli_query($conexao, $consulta2);
+
+                if (mysqli_num_rows($resultado) > 0) {
+
+                    $consulta3 = "SELECT * FROM artigo WHERE id_publicador = '$ID_publi' AND ID_artigo = '$id'";
+                    $resultado3 = mysqli_query($conexao, $consulta3);
+
+                    if (mysqli_num_rows($resultado3) > 0) {
+
+                        $titulo = $_POST["titulo"];
+                        $classificacao = $_POST["classificacao"];
+                        $link_drive = $_POST["link_drive"];
+                        $data_publi = $_POST["data_publi"];
+                        $atualizar = "UPDATE artigo  SET  titulo = '$titulo', classificacao = '$classificacao', link_drive = '$link_drive', data_publi = '$data_publi' WHERE ID_artigo = '$id'";
+                        $resultado_atualizar = mysqli_query($conexao, $atualizar);
+
+                        if ($resultado_atualizar) {
+                            echo "Artigo atualizado com sucesso!";
+                            header("refresh:2;url=loginConta.php");
+                        } else {
+                            echo "Ocorreu um erro ao atualizar cadastro: " . mysqli_error($conexao);
+                        }
 
 
-    if (mysqli_num_rows($resultado) > 0) {
-        $artigo = mysqli_fetch_assoc($resultado);
+                    } else {
+                        echo "A conta logada não é a correspondente ao cadastro.";
+                    }
 
-        if ($_SERVER["REQUEST_METHOD"] === "POST") {
-            $titulo = $_POST["titulo"];
-            $classificacao = $_POST["classificacao"];
-            $link_drive = $_POST["link_drive"];
-            $data_publi = $_POST["data_publi"];
-            $atualizar = "UPDATE artigo  SET  titulo = '$titulo', classificacao = '$classificacao', link_drive = '$link_drive', data_publi = '$data_publi' WHERE id_artigo = '$id'";
-            $resultado_atualizar = mysqli_query($conexao, $atualizar);
-
-            if ($resultado_atualizar) {
-                echo "Artigo atualizado com sucesso!";
-                header("refresh:2;url=index.php");
-            } else {
-                echo "Ocorreu um erro ao atualizar cadastro: " . mysqli_error($conexao);
+                } else {
+                    echo "Erro no login, tente novamente.";
+                }
             }
+
+
+        } else {
+            echo "Artigo não encontrado.";
         }
+
+        mysqli_close($conexao);
+
     } else {
-        echo "Artigo não encontrado.";
+        echo "Erro na conexao com a base de dados: " . mysqli_connect_error();
     }
-
-    mysqli_close($conexao);
-
-} else {
-    echo "Erro na conexao com a base de dados: " . mysqli_connect_error();
-}
 
 } else {
     echo ("ID não informado.");
@@ -67,10 +91,6 @@ if ($conexao) {
             <img src="images/OIP.png">
             <h1>Pietre</h1>
         </header>
-        <form action="busca.php" method="POST">
-            <input type="text" class="pesquisa" name="id_artigo" placeholder="Pesquise artigos por ID...">
-            <button type="submit" class="botaoBuscar">Buscar</button>
-        </form>
     </div>
 
     <div class="container">
@@ -81,9 +101,9 @@ if ($conexao) {
                         Publicar
                     </li>
                 </a>
-                <a href="criaConta.php">
+                <a href="criarConta.php">
                     <li>
-                        Conta
+                        Criar conta
                     </li>
                 </a>
             </ul>
@@ -91,6 +111,16 @@ if ($conexao) {
     </div>
 
     <form method="POST">
+
+        <div class="formGroup">
+            <label for="nome">ID do publicador:</label>
+            <input type="text" class="formInput" name="ID_publi" required>
+        </div>
+
+        <div class="formGroup">
+            <label for="nome">Senha:</label>
+            <input type="text" class="formInput" name="senha" required>
+        </div>
 
         <div class="formGroup">
             <label for="nome">Título:</label>
@@ -112,12 +142,6 @@ if ($conexao) {
         <div class="formGroup">
             <label for="nome">Data de publicação (yyyyMMdd):</label>
             <input type="text" class="formInput" name="data_publi" value="<?php echo $artigo['data_publi']; ?>"
-                required>
-        </div>
-
-        <div class="formGroup">
-            <label for="nome">ID do pesquisador:</label>
-            <input type="text" class="formInput" name="id_pesquisador" value="<?php echo $artigo['id_pesquisador']; ?>"
                 required>
         </div>
 

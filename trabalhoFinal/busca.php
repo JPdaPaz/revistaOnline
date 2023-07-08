@@ -1,11 +1,11 @@
 <?php
 
-$id = $_POST['id_artigo'];
+$id = $_POST['ID_artigo'];
 if ($id) {
-    $conexao = mysqli_connect("localhost", "root", "", "pietreRevista");
+    $conexao = mysqli_connect("localhost", "root", "", "revistaPietre");
 
     if ($conexao) {
-        $consulta = "SELECT * FROM artigo where artigo.id_artigo = '$id'";
+        $consulta = "SELECT * FROM artigo where artigo.ID_artigo = '$id'";
         $resultado = mysqli_query($conexao, $consulta);
 
         if (mysqli_num_rows($resultado) > 0) {
@@ -21,7 +21,7 @@ if ($id) {
                             <th>Classificação</th>
                             <th>Link de acesso</th>
                             <th>Data da publicação</th>
-                            <th>ID do pesquisador</th>
+                            <th>ID do publicador</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -33,7 +33,7 @@ if ($id) {
                         <div class="consulta">
                             <tr>
                                 <td>
-                                    <?php echo $artigo['id_artigo']; ?>
+                                    <?php echo $artigo['ID_artigo']; ?>
                                 </td>
                                 <td>
                                     <?php echo $artigo['titulo']; ?>
@@ -48,14 +48,13 @@ if ($id) {
                                     <?php echo $artigo['data_publi']; ?>
                                 </td>
                                 <td>
-                                    <?php echo $artigo['id_pesquisador']; ?>
+                                    <?php echo $artigo['id_publicador']; ?>
                                 </td>
                                 <td>
-                                    <a href="editarArtigo.php?id=<?php echo $artigo['id']; ?>" class="botaoEditar">Editar</a>
+                                    <a href="editarArtigo.php?ID_artigo=<?php echo $artigo['ID_artigo']; ?>" class="botaoEditar">Editar</a>
                                 </td>
                                 <td>
-                                    <a href="excluirArtigo.php?id=<?php echo $artigo['id']; ?>" class="botaoExcluir"
-                                        onclick="return confirm('Você tem certeza?')">Excluir</a>
+                                    <a href="excluirArtigo.php?ID_artigo=<?php echo $artigo['ID_artigo']; ?>" class="botaoExcluir">Excluir</a>
                                 </td>
                             </tr>
                         </div>
@@ -99,7 +98,7 @@ if ($id) {
             <h1>Pietre</h1>
         </header>
         <form action="busca.php" method="POST">
-            <input type="text" class="pesquisa" name="id_artigo" placeholder="Pesquise artigos...">
+            <input type="text" class="pesquisa" name="ID_artigo" placeholder="Pesquise artigos...">
             <button type="submit" class="botaoBuscar">Buscar</button>
         </form>
     </div>
@@ -112,9 +111,9 @@ if ($id) {
                         Publicar
                     </li>
                 </a>
-                <a href="Conta.php">
+                <a href="criarConta.php">
                     <li>
-                        Conta
+                        Criar conta
                     </li>
                 </a>
             </ul>

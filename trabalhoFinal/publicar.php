@@ -15,55 +15,71 @@
             <h1>Pietre</h1>
         </header>
 
-        <form action="processarFormulario.php" method="POST">
-
-            <div class="formGroup">
-                <label for="nome">Título:</label>
-                <input type="text" class="formInput" name="titulo" required>
+        <div class="container">
+            <div class="menu">
+                <ul>
+                    <a href="loginConta.php">
+                        <li>
+                            Pesquisa
+                        </li>
+                    </a>
+                    <a href="criarConta.php">
+                        <li>
+                            Criar conta
+                        </li>
+                    </a>
+                </ul>
             </div>
-
-            <div class="formGroup">
-                <label for="nome">Classificação indicativa:</label>
-                <input type="text" class="formInput" name="classificacao" required>
-            </div>
-
-            <div class="formGroup">
-                <label for="nome">Link do drive:</label>
-                <input type="text" class="formInput" name="link_drive" required>
-            </div>
-
-            <div class="formGroup">
-                <label for="nome">Data de publicação (yyyyMMdd):</label>
-                <input type="text" class="formInput" name="data_publi" required>
-            </div>
-
-            <div class="formGroup">
-                <label for="nome">ID do publicador:</label>
-                <input type="text" class="formInput" name="id_publicador" required>
-            </div>
-
-            <button type="submit" class="submit">Cadastrar</button>
-
-        </form>
-
-    </div>
-
-    <div class="container">
-        <div class="menu">
-            <ul>
-                <a href="index.php">
-                    <li>
-                        Pesquisa
-                    </li>
-                </a>
-                <a href="criarConta.php">
-                    <li>
-                        Criar conta
-                    </li>
-                </a>
-            </ul>
         </div>
     </div>
+
+    <div class="container1">
+        <div class="tabela">
+            <form action="processarFormulario.php" method="POST" class="formulario">
+
+                <div class="inputs">
+                    <div class="formGroup">
+                        <label for="nome">Título:</label>
+                        <input type="text" class="formInput" name="titulo" required>
+                    </div>
+
+                    <div class="formGroup">
+                        <label for="nome">Classificação indicativa:</label>
+                        <input type="text" class="formInput" name="classificacao" required>
+                    </div>
+
+                    <div class="formGroup">
+                        <label for="nome">Link do drive:</label>
+                        <input type="text" class="formInput" name="link_drive" required>
+                    </div>
+
+                    <div class="formGroup">
+                        <label for="nome">Data de publicação (yyyyMMdd):</label>
+                        <input type="text" class="formInput" name="data_publi" required>
+                    </div>
+
+                    <div class="formGroup">
+                        <label for="nome">ID do publicador:</label>
+                        <input type="text" class="formInput" name="id_publicador" required>
+                    </div>
+
+                    <div class="formGroup">
+                        <label for="nome">Senha:</label>
+                        <input type="text" class="formInput" name="senha" required>
+                    </div>
+
+
+
+                    <div class="submit">
+                        <button type="submit" class="botao" id="botaoCadastrar">Cadastrar</button>
+                    </div>
+                    
+                </div>
+
+            </form>
+        </div>
+    </div>
+
 
 </body>
 

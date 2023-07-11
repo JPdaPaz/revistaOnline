@@ -26,88 +26,90 @@ if (isset($_GET['username'])) {
                     <img src="images/OIP.png">
                     <h1>Pietre</h1>
                 </header>
-                <form action="busca.php?" method="POST">
+                <form class="form" id="pesquisa" action="busca.php?" method="POST">
                     <input type="text" class="pesquisa" name="ID_artigo" placeholder="Pesquise artigos por ID...">
-                    <button type="submit" class="botaoBuscar">Buscar</button>
+                    <button type="submit" class="botao" id="botaoBuscar">Buscar</button>
                 </form>
+                <div class="container">
+                    <div class="menu">
+                        <ul>
+                            <a href="publicar.php">
+                                <li>
+                                    Publicar
+                                </li>
+                            </a>
+                            <a href="criarConta.php">
+                                <li>
+                                    Criar conta
+                                </li>
+                            </a>
+                        </ul>
+                    </div>
+                </div>
             </div>
+
+
 
             <div class="logado">
                 Logado como:
                 <?php echo " $_GET[username]" ?>
             </div>
-
-            <div class="container">
-                <div class="menu">
-                    <ul>
-                        <a href="publicar.php">
-                            <li>
-                                Publicar
-                            </li>
-                        </a>
-                        <a href="criarConta.php">
-                            <li>
-                                Criar conta
-                            </li>
-                        </a>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="tabela">
-                <h1>Lista de artigos cadastrados</h1>
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Título</th>
-                            <th>Classificação</th>
-                            <th>Link de acesso</th>
-                            <th>Data da publicação</th>
-                            <th>ID do pesquisador</th>
-                        </tr>
-                    </thead>
-                    <tbody>
+            <div class="container1">
+                <div class="tabela">
+                    <h1>Lista de artigos cadastrados</h1>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th class="td1">ID</th>
+                                <th>Título</th>
+                                <th class="td1">Classificação</th>
+                                <th>Link de acesso</th>
+                                <th class="td1">Data da publicação</th>
+                                <th>ID do pesquisador</th>
+                            </tr>
+                        </thead>
+                        <tbody>
 
 
-                        <?php
-                        while ($artigo = mysqli_fetch_assoc($resultado)) {
-                            ?>
-                            <div class="consulta">
-                                <tr>
-                                    <td>
-                                        <?php echo $artigo['ID_artigo']; ?>
-                                    </td>
-                                    <td>
-                                        <?php echo $artigo['titulo']; ?>
-                                    </td>
-                                    <td>
-                                        <?php echo $artigo['classificacao']; ?>
-                                    </td>
-                                    <td>
-                                        <a href="<?php echo $artigo['link_drive']; ?>"><?php echo $artigo['link_drive']; ?></a>
-                                    </td>
-                                    <td>
-                                        <?php echo $artigo['data_publi']; ?>
-                                    </td>
-                                    <td>
-                                        <?php echo $artigo['id_publicador']; ?>
-                                    </td>
-                                    <td>
-                                        <a href="editarArtigo.php?ID_artigo=<?php echo $artigo['ID_artigo']; ?>"
-                                            class="botaoEditar">Editar</a>
-                                    </td>
-                                    <td>
-                                        <a href="excluirArtigo.php?ID_artigo=<?php echo $artigo['ID_artigo']; ?>"
-                                            class="botaoExcluir">Excluir</a>
-                                    </td>
-                                </tr>
-                            </div>
                             <?php
-                        }
-                        ?>
-                    </tbody>
-                </table>
+                            while ($artigo = mysqli_fetch_assoc($resultado)) {
+                                ?>
+                                <div class="consulta">
+                                    <tr>
+                                        <td class="td1">
+                                            <?php echo $artigo['ID_artigo']; ?>
+                                        </td>
+                                        <td>
+                                            <?php echo $artigo['titulo']; ?>
+                                        </td>
+                                        <td class="td1">
+                                            <?php echo $artigo['classificacao']; ?>
+                                        </td>
+                                        <td>
+                                            <a href="<?php echo $artigo['link_drive']; ?>"><?php echo $artigo['link_drive']; ?></a>
+                                        </td>
+                                        <td class="td1">
+                                            <?php echo $artigo['data_publi']; ?>
+                                        </td>
+                                        <td>
+                                            <?php echo $artigo['id_publicador']; ?>
+                                        </td>
+                                        <td>
+                                            <a href="editarArtigo.php?ID_artigo=<?php echo $artigo['ID_artigo']; ?>" class="botao"
+                                                id="botaoEditar">Editar</a>
+                                        </td>
+                                        <td>
+                                            <a href="excluirArtigo.php?ID_artigo=<?php echo $artigo['ID_artigo']; ?>" class="botao"
+                                                id="botaoExcluir">Excluir</a>
+                                        </td>
+                                    </tr>
+                                </div>
+                                <?php
+                            }
+                            ?>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </body>
 

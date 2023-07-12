@@ -112,13 +112,17 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             </div>
             <?php
         } else {
+            ?> <div class="phpMensagem"> <?php
             echo "Ocorreu um erro ao criar conta: " . mysqli_error($conexao);
+            ?> </div><?php
         }
 
         mysqli_close($conexao);
 
     } else {
+        ?> <div class="phpMensagem"> <?php
         echo "Erro na conexao com a base de dados: " . mysqli_connect_error();
+        ?> </div><?php
     }
 
 }

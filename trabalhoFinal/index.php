@@ -124,7 +124,9 @@ if (isset($_GET['username'])) {
         echo "Falha na conexão com a base de dados: " . mysqli_connect_error();
     }
 } else {
+    ?> <div class="phpMensagem"> <?php
     echo "Erro no login, você está sendo redirecionado.";
+    ?> </div><?php
     header("refresh:3;url=loginConta.php");
 }
 

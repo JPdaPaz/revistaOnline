@@ -42,8 +42,8 @@
                     </div>
 
                     <div class="formGroup">
-                        <label for="nome">Senha:</label>
-                        <input type="text" class="formInput" name="senhabase" required>
+                        <label for="nome">Senha da conta base:</label>
+                        <input type="password" class="formInput" name="senhabase" required>
                     </div>
 
                     <div class="formGroup">
@@ -74,11 +74,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if ($conexao) {
 
         $id_conta = $_POST["idbase"];
-        $senha = $_POST["senha"];
+        $senha = $_POST["senhabase"];
         $consulta = "SELECT * FROM conta WHERE ID_conta = '$id_conta' AND senha = '$senha'";
         $resultado = mysqli_query($conexao, $consulta);
 
-        if ($resultado) {
+
+        if (mysqli_num_rows($resultado) > 0) {
 
             $area = $_POST["area"];
 
@@ -102,23 +103,34 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 </div>
                 <?php
             } else {
-                ?> <div class="phpMensagem"> <?php
-                echo "Ocorreu um erro ao criar conta: " . mysqli_error($conexao);
-                ?> </div><?php
+                ?>
+                <div class="phpMensagem">
+                    <?php
+                    echo "Ocorreu um erro ao criar conta: " . mysqli_error($conexao);
+                    ?>
+                </div>
+                <?php
             }
         } else {
-            ?> <div class="phpMensagem"> <?php
-            echo "Erro no login";
-            ?> </div><?php
-            header("refresh:2;url=criarContaPubli.php");
+            ?>
+            <div class="phpMensagem">
+    <?php
+                    echo "Erro no login";
+                    ?>
+            </div>
+<?php
         }
 
         mysqli_close($conexao);
 
     } else {
-        ?> <div class="phpMensagem"> <?php
-        echo "Erro na conexao com a base de dados: " . mysqli_connect_error();
-        ?> </div><?php
+        ?>
+        <div class="phpMensagem">
+    <?php
+            echo "Erro na conexao com a base de dados: " . mysqli_connect_error();
+            ?>
+        </div>
+<?php
     }
 
 }

@@ -27,8 +27,8 @@ header {
     border: 3px outset lightgray;
 }
 
-#pesquisa{
-    width:300%;
+#pesquisa {
+    width: 300%;
 }
 
 .pesquisa {
@@ -72,8 +72,23 @@ header {
     background-color: lightgray;
 }
 
+.logado {
+    color: white;
+    margin: 5px;
+}
+
 a {
     text-decoration: none;
+}
+
+.link {
+    color: rgb(8, 104, 199);
+    text-decoration: underline;
+}
+
+.piscar {
+    background-color: #15ff15;
+    color: black;
 }
 
 .botao {
@@ -88,12 +103,27 @@ a {
 
 }
 
-#botaoCriarContaPubli{
-    background-color: yellow;
-    color: black;
+#botaoCriarContaPubli {
+    animation: piscar 1s infinite;
 }
 
-#botaoFecharJanela{
+/* Definir a animação */
+@keyframes piscar {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+
+#botaoFecharJanela {
     background-color: yellow;
     color: black;
     border: 1px solid red;
@@ -101,8 +131,8 @@ a {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-#botaoSubmit{
-    margin-top:10px;
+#botaoSubmit {
+    margin-top: 10px;
 }
 
 #botaoExcluir {
@@ -119,11 +149,14 @@ a {
     height: 40px;
 }
 
-#botaoExcluir:hover, #botaoEditar:hover, #botaoCriarContaPubli:hover{
+#botaoExcluir:hover,
+#botaoEditar:hover,
+#botaoCriarContaPubli:hover {
     background-color: white;
-    color:black;
+    color: black;
 }
-.botao:hover{
+
+.botao:hover {
     background-color: rgb(107, 166, 255);
 }
 
@@ -166,29 +199,29 @@ a {
     width: 100%;
 }
 
-.formGroup{
-display: flex;
-justify-content: right;
-margin-top: 5px;
+.formGroup {
+    display: flex;
+    justify-content: right;
+    margin-top: 5px;
 }
 
-.formulario{
-font-size: 20px;
-display: flex;
-justify-content: center;
+.formulario {
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
 }
 
-.formInput{
+.formInput {
     font-size: 17px;
 }
 
-.submit{
+.submit {
     display: flex;
     justify-content: center;
     margin-top: 20px;
 }
 
-.sucesso{
+.sucesso {
     background-color: yellow;
     border: 3px solid red;
     color: black;
@@ -199,10 +232,10 @@ justify-content: center;
     height: 50px;
 }
 
-.phpMensagem{
-    color:white;
+.phpMensagem {
+    color: white;
     text-shadow: 2px 0 #000000, -2px 0 #000000, 0 2px #000000, 0 -2px #000000,
-    1px 1px #000000, -1px -1px #000000, 1px -1px #000000, -1px 1px #000000;
+        1px 1px #000000, -1px -1px #000000, 1px -1px #000000, -1px 1px #000000;
     font-weight: bolder;
     background-color: yellow;
     display: flex;

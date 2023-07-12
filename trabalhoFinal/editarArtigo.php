@@ -1,5 +1,3 @@
-
-
 <?php
 
 
@@ -42,9 +40,13 @@ if (isset($_GET['ID_artigo'])) {
                         $resultado_atualizar = mysqli_query($conexao, $atualizar);
 
                         if ($resultado_atualizar) {
-                            ?> <div class="phpMensagem"> <?php
-                            echo "Artigo atualizado com sucesso!";
-                            ?> </div><?php
+                            ?>
+                            <div class="phpMensagem">
+                                <?php
+                                echo "Artigo atualizado com sucesso!";
+                                ?>
+                            </div>
+                            <?php
                             header("refresh:2;url=loginConta.php");
                         } else {
                             echo "Ocorreu um erro ao atualizar cadastro: " . mysqli_error($conexao);
@@ -52,23 +54,35 @@ if (isset($_GET['ID_artigo'])) {
 
 
                     } else {
-                        ?> <div class="phpMensagem"> <?php
-                        echo "A conta logada não é a correspondente ao cadastro.";
-                        ?> </div><?php
+                        ?>
+                        <div class="phpMensagem">
+    <?php
+                                            echo "A conta logada não é a correspondente ao cadastro.";
+                                            ?>
+                        </div>
+<?php
                     }
 
                 } else {
-                    ?> <div class="phpMensagem"> <?php
-                    echo "Erro no login, tente novamente.";
-                    ?> </div><?php
+                    ?>
+                    <div class="phpMensagem">
+    <?php
+                                    echo "Erro no login, tente novamente.";
+                                    ?>
+                    </div>
+<?php
                 }
             }
 
 
         } else {
-            ?> <div class="phpMensagem"> <?php
-            echo "Artigo não encontrado.";
-            ?> </div><?php
+            ?>
+            <div class="phpMensagem">
+    <?php
+                    echo "Artigo não encontrado.";
+                    ?>
+            </div>
+<?php
         }
 
         mysqli_close($conexao);
@@ -78,9 +92,13 @@ if (isset($_GET['ID_artigo'])) {
     }
 
 } else {
-    ?> <div class="phpMensagem"> <?php
+    ?>
+    <div class="phpMensagem">
+    <?php
     echo ("ID não informado.");
-    ?> </div><?php
+    ?>
+    </div>
+<?php
 }
 ?>
 
@@ -134,7 +152,7 @@ if (isset($_GET['ID_artigo'])) {
 
                     <div class="formGroup">
                         <label for="nome">Senha:</label>
-                        <input type="text" class="formInput" name="senha" required>
+                        <input type="password" class="formInput" name="senha" required>
                     </div>
 
                     <div class="formGroup">

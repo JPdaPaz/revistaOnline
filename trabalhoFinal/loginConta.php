@@ -40,13 +40,13 @@
 
                 <div class="inputs">
                     <div class="formGroup">
-                        <label for="nome">Username:</label>
-                        <input type="text" class="formInput" name="username" required>
+                        <label for="nome">ID da conta:</label>
+                        <input type="text" class="formInput" name="ID_conta" required>
                     </div>
 
                     <div class="formGroup">
                         <label for="nome">Senha:</label>
-                        <input type="text" class="formInput" name="senha" required>
+                        <input type="password" class="formInput" name="senha" required>
                     </div>
 
                     <div class="submit">
@@ -69,20 +69,27 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if ($conexao) {
 
         $senha = $_POST["senha"];
-        $username = $_POST["username"];
-        $consulta = "SELECT * FROM conta WHERE username = '$username' AND senha = '$senha'";
+        $ID_conta = $_POST["ID_conta"];
+        $consulta = "SELECT * FROM conta WHERE ID_conta = '$ID_conta' AND senha = '$senha'";
         $resultado = mysqli_query($conexao, $consulta);
 
         if (mysqli_num_rows($resultado) > 0) {
-            ?> <div class="phpMensagem"> <?php
-            echo "Sucesso";
-            ?> </div><?php
-            header("refresh:1;url=index.php?username=$username");
+            ?>
+            <div class="phpMensagem">
+                <?php
+                echo "Sucesso";
+                ?>
+            </div>
+            <?php
+            header("refresh:1;url=index.php?ID_conta=$ID_conta");
         } else {
-            ?> <div class="phpMensagem"> <?php
-            echo "Erro no login, tente novamente.";
-            ?> </div><?php
-
+            ?>
+            <div class="phpMensagem">
+                <?php
+                echo "Erro no login, tente novamente.";
+                ?>
+            </div>
+            <?php
         }
 
         mysqli_close($conexao);

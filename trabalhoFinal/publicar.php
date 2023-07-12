@@ -38,6 +38,8 @@
             <form action="processarFormulario.php" method="POST" class="formulario">
 
                 <div class="inputs">
+                    <h3>É necessária uma <a class="link" href="criarContaPubli.php">Conta de Publicador</a>!
+                    </h3>
                     <div class="formGroup">
                         <label for="nome">Título:</label>
                         <input type="text" class="formInput" name="titulo" required>
@@ -65,7 +67,7 @@
 
                     <div class="formGroup">
                         <label for="nome">Senha:</label>
-                        <input type="text" class="formInput" name="senha" required>
+                        <input type="password" class="formInput" name="senha" required>
                     </div>
 
 
@@ -73,7 +75,7 @@
                     <div class="submit">
                         <button type="submit" class="botao" id="botaoCadastrar">Cadastrar</button>
                     </div>
-                    
+
                 </div>
 
             </form>

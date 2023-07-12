@@ -1,6 +1,6 @@
 <?php
 
-if (isset($_GET['username'])) {
+if (isset($_GET['ID_conta'])) {
 
     $conexao = mysqli_connect("localhost", "root", "", "revistaPietre");
     if ($conexao) {
@@ -51,8 +51,8 @@ if (isset($_GET['username'])) {
 
 
             <div class="logado">
-                Logado como:
-                <?php echo " $_GET[username]" ?>
+                Logado como ID:
+                <?php echo " $_GET[ID_conta]" ?>
             </div>
             <div class="container1">
                 <div class="tabela">
@@ -124,10 +124,14 @@ if (isset($_GET['username'])) {
         echo "Falha na conexão com a base de dados: " . mysqli_connect_error();
     }
 } else {
-    ?> <div class="phpMensagem"> <?php
+    ?>
+    <div class="phpMensagem">
+    <?php
     echo "Erro no login, você está sendo redirecionado.";
-    ?> </div><?php
-    header("refresh:3;url=loginConta.php");
+    ?>
+    </div>
+<?php
+        header("refresh:3;url=loginConta.php");
 }
 
 ?>

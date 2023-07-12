@@ -30,7 +30,7 @@
 
                     <div class="formGroup">
                         <label>Senha:</label>
-                        <input type="text" class="formInput" name="senha" required>
+                        <input type="password" class="formInput" name="senha" required>
                     </div>
                     <div class="submit">
                         <button type="submit" class="botao"><a
@@ -83,14 +83,22 @@ if (isset($_GET['ID_artigo'])) {
 
                     $resultado4 = mysqli_query($conexao, $consulta4);
                     if ($resultado4) {
-                        ?> <div class="phpMensagem"> <?php
-                        echo ("Exclusão realizada com sucesso.");
-                        ?> </div><?php
+                        ?>
+                        <div class="phpMensagem">
+                            <?php
+                            echo ("Exclusão realizada com sucesso.");
+                            ?>
+                        </div>
+                        <?php
                         header("refresh:2;url=loginConta.php");
                     } else {
-                        ?> <div class="phpMensagem"> <?php
-                        echo "Erro ao excluir artigo: " . mysqli_error($conexao);
-                        ?> </div><?php
+                        ?>
+                        <div class="phpMensagem">
+                            <?php
+                            echo "Erro ao excluir artigo: " . mysqli_error($conexao);
+                            ?>
+                        </div>
+                        <?php
                         header("refresh:2;url=loginConta.php");
                     }
 
@@ -98,11 +106,11 @@ if (isset($_GET['ID_artigo'])) {
                 } else {
                     ?>
                     <div class="phpMensagem">
-                        <?php
-                        echo "A conta logada não é a correspondente ao cadastro.";
-                        ?>
+    <?php
+                                    echo "A conta logada não é a correspondente ao cadastro.";
+                                    ?>
                     </div>
-                    <?php
+<?php
                 }
 
             } else {

@@ -113,18 +113,27 @@
                     <?php
 
                 } else {
-                    ?> <div class="phpMensagem"> <?php
-                    echo "Artigo não encontrado.";
-                    ?> </div><?php
+                    ?>
+                    <div class="phpMensagem">
+                        <?php
+                        echo "Artigo não encontrado.";
+                        ?>
+                    </div>
+                    <?php
+                    header("refresh:3;url=loginConta.php");
                 }
                 mysqli_close($conexao);
             } else {
                 echo "Falha na conexão com a base de dados: " . mysqli_connect_error();
             }
         } else {
-            ?><div class="phpMensagem"> <?php
+            ?>
+        <div class="phpMensagem">
+            <?php
             echo "ID não fornecido.";
-            ?> </div><?php
+            ?>
+        </div>
+        <?php
         }
 
         ?>

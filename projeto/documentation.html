@@ -20,73 +20,55 @@
 
 
     <h2>Apresentação</h2>
-    <p>Pietre é uma biblioteca online de artigos científicos de cunho geral, idealizada e construída por João Pedro
-        da Paz e Pedro dos Santos Varnier em 2023. <br>O diferencial da plataforma é a <b>acessibilidade</b> dela, pois
-        sua
-        utilização é <b>gratuita!!!</b></p>
+    <p>Pietre é uma simulação de biblioteca online de artigos científicos de cunho geral, idealizada e construída por
+        João Pedro da Paz e Pedro dos Santos Varnier em 2023.</p>
+
 
     <h2>Descrição do projeto</h2>
-    <p>Um sistema de publicação e procura de artigos científicos com: autor(es/as), ano de publicação, título, link do
-        documento, idioma e país/cidade onde foi feito.</p>
+    <p>Um sistema de publicação e procura de artigos científicos com: data de publicação, classificação indicativa,
+        título, link de acesso ao documento, ID da obra e ID da conta do publicador.</p>
+
 
     <h2>Usuários e suas permissões</h2>
     <ul>
+        <li>Usuário base: <span>Buscar e consultar as informações dos cadatros de todos os artigos publicados.</span>
+        </li>
 
-        <li>Administrador: <span>criar, excluir e alterar tabelas; excluir quaisquer informações publicadas por
-                usuários; consultar dados cadastrados.</span></li>
-
-        <li>Usuário: <span>publicar, excluir e alterar informações de própria autoria; consultar dados
-                cadastrados.</span></li>
-
-        <li>Visitante: <span>consultar dados cadastrados.</span></li>
-
+        <li>Usuário publicador: <span>Publicar, excluir e alterar informações de própria autoria.</span></li>
     </ul>
+
 
     <h2>Necessidades observadas e regras de negócio</h2>
-
-    <p>Para uma plataforma de publicação, é necessário seguir as leis de liberdade de expressão, controlar a circulação
-        de
-        obras que ferem direitos humanos ou infringem qualquer regulamento e controlar o acesso a mídias com
+    <p>Seguir as leis de liberdade de expressão, controlar a circulação
+        de obras que ferem direitos humanos ou infringem qualquer regulamento e controlar o acesso a mídias com
         classificação indicativa.</p>
 
+
     <h2>Requisitos funcionais</h2>
-
     <ul>
-
-
-        <li>Criação de login, que contém: email, senha, nome, sobrenome, país e cpf.</li>
-        <li>Validação de login, que contém: email e senha.</li>
-        <li>Pesquisa de obras por meio de palavras chave.</li>
-        <li>Funcionalidade de cadastro, exclusão e alteração de informações.</li>
-
-
-
+        <li>Criação de login, que contém: email, senha, nome, sobrenome, username, data de nascimento e ID
+            automaticamente imposto.</li>
+        <li>Criação de conta de publicador, que controla suas próprias obras, que contém: ID da conta básica, senha da
+            conta básica, área de atuação e ID automaticamente imposto.</li>
+        <li>Validação de login, que usa: ID e senha.</li>
+        <li>Pesquisa de obras por meio de seus IDs.</li>
+        <li>Funcionalidade de cadastro, exclusão e alteração de informações de autoria própria, com autenticação de login</li>
     </ul>
+
 
     <h2>Requisitos não funcionais</h2>
-
     <ul>
-
-        <li>Criptografia das informações pessoais e cada login.</li>
-        <li>Disponibilidade da plataforma 24/7.</li>
-        <li>Manutenção.</li>
-        <li>Rodar o sistema nos navegadores mais populares.</li>
-        <li>Comunicar-se com o SQL Server.</li>
-        <li>Segurança dos dados de cunho privativo contra vazamentos.</li>
-
+        <li>Possuir compatibilidade com os navegadores mais populares.</li>
+        <li>Comunicar-se com os servidores Apache e MySQL.</li>
+        <li>Ser efetuada a manutenção das funcionalidades.</li>
     </ul>
-
 
 
     <h2>Tecnologias previstas</h2>
-
     <ul>
-
-        <li>JavaScript: dinamização da página.</li>
         <li>PHP & MySQL: gerenciamento e integração do banco de dados.</li>
         <li>HTML: estruturação da interface.</li>
         <li>CSS: estilização e organização da estrutura HTML.</li>
-
     </ul>
 
 
